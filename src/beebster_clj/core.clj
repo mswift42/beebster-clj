@@ -4,7 +4,7 @@
         [net.cgrand.enlive-html :as html]
         [clojure.java.shell :only [sh]]
         [compojure.core]
-        [clojure.string :only [split-lines]]))
+        [clojure.string :as str :only [split-lines ]]))
 
 
 (def iplayer-command
@@ -13,7 +13,8 @@
 (defn iplayer-search
   "run external command with given args list."
   [search-title]
-  (split-lines (:out (apply sh (flatten (conj (list search-title) iplayer-command))))))
+  (split-lines (:out (apply sh (flatten
+                                (conj (list search-title) iplayer-command))))))
 
 (def iplayer-info
   '("get_iplayer" "-i"))
@@ -24,23 +25,17 @@
   (split-lines (:out (apply sh (flatten (conj (list index) iplayer-info))))))
 
 (defn get-thumb-from-search
-  "find thumbnail-url in string."
-  [str]
-  (re-find #"http.*jpg" str))
+  "return list of thumbnail for searchterm."
+  [s]
+  (remove nil? (map #(re-find #"http.*jpg" %) s)))
 
+(defn get-title-and-episode
+  "return list of titles from search-iplayer string."
+  [s]
+  (map #(re-find #"[A-Z0-9].*" %)
+       (remove nil? (map #(re-find #"jpg.*" %) (map #(str/replace % #"-" "") s)))))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(defn get-index-from-search
+  "return list of indexes from search-iplayer string."
+  [s]
+  (remove #(= "" %) (map #(re-find #"^[0-9]*" %) s)))
