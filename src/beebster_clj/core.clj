@@ -39,3 +39,12 @@
   "return list of indexes from search-iplayer string."
   [s]
   (remove #(= "" %) (map #(re-find #"^[0-9]*" %) s)))
+
+
+(defn iplayer-download-command
+  "concatenate index and mode to download command"
+   [index mode]
+  (apply str  "get_iplayer " mode "1" " -g  --nocopyright --output=\"$HOME/Videos\"" " " index)) 
+
+
+
