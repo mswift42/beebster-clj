@@ -7,7 +7,8 @@
                  [enlive "1.1.1"]
                  [ring "1.2.0"]
                  [compojure "1.1.5"]
-                 [net.cgrand/moustache "1.1.0"]
-  ]
+                 [net.cgrand/moustache "1.1.0"]]
+  :plugins [[lein-ring "0.8.8"]]
+  :ring {:handler beebster-clj.core/app}
   :dev-dependencies [[lein-ring "0.4.5"]]
   )
