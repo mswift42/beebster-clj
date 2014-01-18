@@ -1,6 +1,7 @@
 (ns beebster-clj.core
   (:require [compojure.route :as route]
-            [compojure.handler :as handler])
+            [compojure.handler :as handler]
+            [beebster-clj.views :as views])
   (:use [ring.adapter.jetty :only [run-jetty]]
         [clojure.java.shell :only [sh]]
         [clojure.string :as str :only [split-lines ]]
@@ -46,14 +47,13 @@
    [index mode]
   (apply str  "get_iplayer " mode "1" " -g  --nocopyright --output=\"$HOME/Videos\"" " " index)) 
 
-(defn search-page
-  "start html-page of beebster-clj"
-  []
-  (html
-   [:h3 "Search yourself"]))
+
+
+
 
 (defroutes app-routes
-  (GET "/" [] (search-page)))
+  (route/resources "/")
+  (GET "/" [] (views/index-page)))
 
 (def app
   (handler/site app-routes))
