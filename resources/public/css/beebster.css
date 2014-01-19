@@ -11,9 +11,24 @@ body {
 }
 
 .sform {
+    
     margin:auto;
     margin-left:20px;
     margin-top:40px;
     }
+
+
+.navbar
+{
+    background-color: #5e00ff;
+}
+
+.form-control {
+    color:#000;
+    
+    
+    }
+
+
 
 
