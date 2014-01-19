@@ -18,6 +18,8 @@ body {
     }
 
 
+
+
 .navbar
 {
     background-color: #5e00ff;
@@ -28,6 +30,28 @@ body {
     
     
     }
+
+
+.t1 {
+    margin:auto;
+    width:48em;
+    color:e2e2e5;
+    text-align:center;
+    }
+
+.tablecell {
+    float:left;
+    width:500px;
+    text-align:center;
+    margin: 20px;
+    }
+.header {
+    color:#5d90cd;
+    text-align:center;
+}
+
+
+
 
 
 
