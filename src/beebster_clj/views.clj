@@ -78,7 +78,7 @@
    (nil? resultlist)
    (html
     [:p "No matches foudn."])
-   (old-recordings? (first resultlist))
+   (some #(re-find #"These programmes should" %) resultlist)
    (html
     (for [i resultlist]
       [:p (str i)]))
@@ -92,10 +92,10 @@
           [:div.table
            [:div.tablecell
             [:div.t1
-             [:a {:href (get-url (nth ind a))}
-              [:img.img {:src (first i)}]]]
+             [:a {:href (get-url (nth ind a)) :alt (nth desc a)}
+              [:img.img {:src i}]]]
             [:div.t1
-             (str (first (nth desc a)))]]]))
+             (str (nth desc a))]]]))
       [:div.clear "&nbsp;"]))))
 
 (defn category-page
