@@ -1,0 +1,19 @@
+body {
+    padding-top:65px;
+    background-color:#2c2c2c;
+    }
+
+.navbar {
+  .navbar-inner {
+    background-color: #2c2c2c;
+    background-image: none;
+  }
+}
+
+.sform {
+    margin:auto;
+    margin-left:20px;
+    margin-top:40px;
+    }
+
+
