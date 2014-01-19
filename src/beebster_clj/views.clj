@@ -52,7 +52,7 @@
      [:div.form-group
       [:input.form-control {:type "text" :name "searchvalue"}]]
      [:div.form-group
-      [:input.form-control {:type "submit" :value "Search"}]]]]))
+      [:input {:type "submit" :value "Search" :class "btn btn-default"}]]]]))
 
 (defn about-page
   []
@@ -64,4 +64,11 @@
    [:p "Beebster, a Web Gui for "]
    [:a {:href "http://www.infradead.org/get_iplayer/html/get_iplayer.html"}
     "get-iplayer"]))
+
+(defn category-page
+  [category]
+  (html
+   (base-template "Categories")
+   (header '(("/" "Index") ("/about" "About")))
+   [:h2.header (str category)]))
 
