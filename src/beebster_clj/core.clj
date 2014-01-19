@@ -70,7 +70,7 @@
   "run external command with given args list."
   [search-title]
   (let [result (iplayer-search-resultstring search-title)]
-    (if (old-recordings? (split-lines result))
+    (if (not= '() (old-recordings? (split-lines result)))
       (split-lines (subs result (.indexOf result delete-string)))
       (split-lines result))))
 
