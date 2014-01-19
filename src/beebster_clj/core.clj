@@ -46,7 +46,10 @@
 (defn old-recordings? 
   "Does get-iplayer complain about recorded programmes > 30 days?"
   [str]
-  (remove nil? (map #(re-find #"These programmes should be deleted:" %) str)))
+  (seq (remove nil?
+               (map #(re-find #"These programmes should be deleted:" %) str))))
+
+
 
 (defn iplayer-download-command
   "concatenate index and mode to download command"
@@ -70,7 +73,7 @@
   "run external command with given args list."
   [search-title]
   (let [result (iplayer-search-resultstring search-title)]
-    (if (not= '() (old-recordings? (split-lines result)))
+    (if (old-recordings? (split-lines result))
       (split-lines (subs result (.indexOf result delete-string)))
       (split-lines result))))
 
