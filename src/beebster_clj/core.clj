@@ -46,14 +46,19 @@
   "concatenate index and mode to download command"
    [index mode]
   (apply str  "get_iplayer " mode "1" " -g  --nocopyright --output=\"$HOME/Videos\"" " " index)) 
+ 
+
+(defn search-categories
+  "search iplayer for a given category"
+  [cat]
+  (split-lines (:out (apply sh (flatten
+                                (conj (list "--category" cat)
+                                      iplayer-command))))))
 
 
 
 
 
-(defroutes app-routes
-  (route/resources "/")
-  (GET "/" [] (views/index-page)))
 
-(def app
-  (handler/site app-routes))
+
+
