@@ -10,7 +10,8 @@
   (route/resources "/")
   (GET "/" [] (index-page))
   (GET "/about" [] (about-page))
-  (GET "/categories" [category] (category-page category)))
+  (GET "/categories" [category] (category-page category))
+  (POST "/results" [searchvalue] (result-page searchvalue)))
 
 
 (def app

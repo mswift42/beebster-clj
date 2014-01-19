@@ -2,7 +2,7 @@
   (:use hiccup.core hiccup.util hiccup.page hiccup.form beebster-clj.core))
 
 (def categories
-  '("search" "popular" "highlights" "films" "nature"
+  '("popular" "highlights" "films" "nature"
     "crime" "sitcom" "sport" "thriller"))
 
 (defn header
@@ -90,14 +90,15 @@
    :else
    (let [comb (combine-list resultlist)]
      (html
-      (for [[img desc ind] comb]
-        [:div.table
-         [:div.tablecell
-          [:div.t1
-           [:a {:href (get-url ind) :alt desc}
-            [:img.img {:src img}]]]
-          [:div.t1
-           (str desc)]]])
+      [:div.rtable
+       (for [[img desc ind] comb]
+         [:div.table
+          [:div.tablecell
+           [:div.t1
+            [:a {:href (get-url ind) :alt desc}
+             [:img.img {:src img}]]]
+           [:div.t1
+            (str desc)]]])]
       [:div.clear "&nbsp;"]))))
 
 (defn category-page
@@ -108,4 +109,10 @@
    [:h2.header (str category)]
    (display-results (search-categories category))))
 
-
+(defn result-page
+  [searchterm]
+  (html
+   (base-template "Search Results")
+   (header '(("/" "Index") ("/about" "about")))
+   [:h2.header "Search Results"]
+   (display-results (iplayer-search searchterm))))
