@@ -1,5 +1,5 @@
 (ns beebster-clj.views
-  (:use hiccup.core hiccup.util hiccup.page))
+  (:use hiccup.core hiccup.util hiccup.page hiccup.form))
 
 (def categories
   '("search" "popular" "highlights" "films" "nature"
@@ -17,7 +17,8 @@
         (for [[url description] links]
           [:li.active [:a {:href url} description]])
         (for [link categories]
-          [:li.active [:a {:href (apply str "/categories?category=" link)} link]])]]]]]))
+          [:li.active
+           [:a {:href (apply str "/categories?category=" link)} link]])]]]]]))
 
 (defn base-template
   "base html template for all beebster sites."
@@ -25,10 +26,8 @@
   (html
    [:head
     [:title title]
-    (include-css "/css/bootstrap.min.css")]))
-
-
-
+    (include-css "/css/bootstrap.min.css")
+    (include-css "/css/beebster.css")]))
 
 
 (defmacro category-template 
@@ -47,7 +46,13 @@
   []
   (html
    (base-template "Index")
-   (header '(("/about" "About")))))
+   (header '(("/about" "About")))
+   [:div.sform
+    [:form {:method "post" :role "form" :action "/results"} 
+     [:div.form-group
+      [:input.form-control {:type "text" :name "searchvalue"}]]
+     [:div.form-group
+      [:input.form-control {:type "submit" :value "Search"}]]]]))
 
 (defn about-page
   []
