@@ -1,5 +1,5 @@
 (ns beebster-clj.views
-  (:use hiccup.core hiccup.util hiccup.page hiccup.form))
+  (:use hiccup.core hiccup.util hiccup.page hiccup.form beebster-clj.core))
 
 (def categories
   '("search" "popular" "highlights" "films" "nature"
@@ -17,7 +17,7 @@
         (for [[url description] links]
           [:li.active [:a {:href url} description]])
         (for [link categories]
-          [:li.active
+          [:li.activen
            [:a {:href (apply str "/categories?category=" link)} link]])]]]]]))
 
 (defn base-template
@@ -65,10 +65,45 @@
    [:a {:href "http://www.infradead.org/get_iplayer/html/get_iplayer.html"}
     "get-iplayer"]))
 
+
+
+
+(defn display-results
+  "check if search contaings iplayer's warning notice for 
+   expired programmes. If not, and if search is succesful
+   loop through list to display thumbnail and title
+   in 2 columns."
+  [resultlist]
+  (cond
+   (nil? resultlist)
+   (html
+    [:p "No matches foudn."])
+   (old-recordings? (first resultlist))
+   (html
+    (for [i resultlist]
+      [:p (str i)]))
+   :else
+   (let [imgs (get-thumb-from-search resultlist)
+         desc (get-title-and-episode resultlist)
+         ind (get-index-from-search resultlist)]
+     (html
+      (for [i imgs]
+        (for [a (range (count imgs))]
+          [:div.table
+           [:div.tablecell
+            [:div.t1
+             [:a {:href (get-url (nth ind a))}
+              [:img.img {:src (first i)}]]]
+            [:div.t1
+             (str (first (nth desc a)))]]]))
+      [:div.clear "&nbsp;"]))))
+
 (defn category-page
   [category]
   (html
    (base-template "Categories")
    (header '(("/" "Index") ("/about" "About")))
-   [:h2.header (str category)]))
+   [:h2.header (str category)]
+   (display-results (search-categories category))))
+
 
