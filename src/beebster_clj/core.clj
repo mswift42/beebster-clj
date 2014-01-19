@@ -20,6 +20,11 @@
 (def iplayer-info
   '("get_iplayer" "-i"))
 
+(defn old-recordings? 
+  "Does get-iplayer complain about recorded programmes > 30 days?"
+  [str]
+  (remove nil? (map #(re-find #"These programmes should be deleted:" %) str)))
+
 (defn get-info
   "get-iplayer info for entered index"
   [index]
