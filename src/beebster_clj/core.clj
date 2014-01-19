@@ -45,10 +45,9 @@
 
 (defn old-recordings? 
   "Does get-iplayer complain about recorded programmes > 30 days?"
-  [str]
+  [lst]
   (seq (remove nil?
-               (map #(re-find #"These programmes should be deleted:" %) str))))
-
+               (map #(re-find #"These programmes should be deleted:" %) lst))))
 
 
 (defn iplayer-download-command
