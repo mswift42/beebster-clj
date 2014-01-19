@@ -66,7 +66,12 @@
     "get-iplayer"]))
 
 
-
+(defn combine-list
+  "zip thumb, title and index from search into one list."
+  [search]
+  (map list (get-thumb-from-search search)
+       (get-title-and-episode search)
+       (get-index-from-search search)))
 
 (defn display-results
   "check if search contaings iplayer's warning notice for 
@@ -77,25 +82,22 @@
   (cond
    (nil? resultlist)
    (html
-    [:p "No matches foudn."])
+    [:p "No matches found."])
    (some #(re-find #"These programmes should" %) resultlist)
    (html
     (for [i resultlist]
       [:p (str i)]))
    :else
-   (let [imgs (get-thumb-from-search resultlist)
-         desc (get-title-and-episode resultlist)
-         ind (get-index-from-search resultlist)]
+   (let [comb (combine-list resultlist)]
      (html
-      (for [i imgs]
-        (for [a (range (count imgs))]
-          [:div.table
-           [:div.tablecell
-            [:div.t1
-             [:a {:href (get-url (nth ind a)) :alt (nth desc a)}
-              [:img.img {:src i}]]]
-            [:div.t1
-             (str (nth desc a))]]]))
+      (for [[img desc ind] comb]
+        [:div.table
+         [:div.tablecell
+          [:div.t1
+           [:a {:href (get-url ind) :alt desc}
+            [:img.img {:src img}]]]
+          [:div.t1
+           (str desc)]]])
       [:div.clear "&nbsp;"]))))
 
 (defn category-page
