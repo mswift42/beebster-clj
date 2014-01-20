@@ -1,5 +1,5 @@
 (ns beebster-clj.views
-  (:use hiccup.core hiccup.util hiccup.page hiccup.form beebster-clj.core))
+  (:use hiccup.core hiccup.element hiccup.util hiccup.page hiccup.form beebster-clj.core))
 
 (def categories
   '("popular" "highlights" "films" "nature"
@@ -116,3 +116,19 @@
    (header '(("/" "Index") ("/about" "about")))
    [:h2.header "Search Results"]
    (display-results (iplayer-search searchterm))))
+
+
+
+(defn info-page
+  [index]
+  (let [[thumb desc title] (load-thumbandinfo-for-index index)]
+    (html
+     (base-template "Info")
+     (header '(("/" "search") ("/about" "about")))
+     [:h2.header "Info"]
+     [:div.infotitle
+      [:p (first title)]]
+     [:div.infothumb
+      [:img {:src (first thumb)}]]
+     [:div.iplayerinfo
+      [:p (first desc)]])))
