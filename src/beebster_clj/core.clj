@@ -66,9 +66,9 @@
   (apply str  "get_iplayer " mode "1" " -g  --nocopyright --output=\"$HOME/Videos\"" " " index)) 
  
 (defn get-url
-  "return /result url string concatenated with index"
+  "return /info url string concatenated with index"
   [index]
-  (apply str "/result?index=" index))
+  (apply str "/info?index=" index))
 
 (defn iplayer-search-resultstring
   "run external command with given args list."
