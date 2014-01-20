@@ -27,6 +27,16 @@
   [index]
   (split-lines (:out (apply sh (flatten (conj (list index) iplayer-info))))))
 
+(defn load-thumbandinfo-for-index
+  "grep url for thumbnail size44, title and description
+   for entered index."
+  [index]
+  (let [ind (get-info index)]
+    (list
+     (map #(re-find #"htt.*" %) (filter #(re-find #"thumbnail4.*" %) ind))
+     (map #(re-find #"[A-Z].*" %) (filter #(re-find #"desc:.*" %) ind))
+     (map #(re-find #"[A-Z0-9].*" %) (filter #(re-find #"title:.*" %) ind)))))
+
 (defn get-thumb-from-search
   "return list of thumbnail for searchterm."
   [s]
