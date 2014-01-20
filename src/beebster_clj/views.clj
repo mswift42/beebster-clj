@@ -1,5 +1,5 @@
 (ns beebster-clj.views
-  (:use hiccup.core hiccup.element hiccup.util hiccup.page hiccup.form beebster-clj.core))
+  (:use hiccup.core hiccup.element hiccup.util hiccup.page hiccup.form beebster-clj.core [clojure.java.shell :only [sh]]))
 
 (def categories
   '("popular" "highlights" "films" "nature"
@@ -121,7 +121,7 @@
 
 (defn info-page
   [index]
-  (let [[thumb desc title] (load-thumbandinfo-for-index index)]
+  (let [[thumb desc title modes] (load-thumbandinfo-for-index index)]
     (html
      (base-template "Info")
      (header '(("/" "search") ("/about" "about")))
@@ -130,5 +130,20 @@
       [:p (first title)]]
      [:div.infothumb
       [:img {:src (first thumb)}]]
+     [:form.form-inline
+      {:role "form" :method "post" :action (apply str "/download?index=" index)}
+      [:div.form-group
+       [:select {:name "mode" :label.sr-only "download modes"}
+        (for [i modes]
+          [:option {:value i :selected (= i "mode") } i])]]
+      [:div.form-group
+       [:input {:type "submit" :value "Download" :class "btn btn-default"
+                :label.sr-only "download-modes"}]]]
      [:div.iplayerinfo
       [:p (first desc)]])))
+
+(defn download-page
+  [index mode]
+  (let [prog (future (apply sh  (iplayer-download-command index mode)))]
+    (html
+     (:p (apply str "Downloading " index mode)))))
