@@ -18,7 +18,9 @@ body {
     }
 
 
-
+p {
+    color:#c2c2c2;
+    }
 
 .navbar
 {
@@ -35,7 +37,7 @@ body {
 .t1 {
     margin:auto;
     width:48em;
-    color:e2e2e5;
+    color:c2c2c2;
     text-align:center;
     }
 
@@ -51,7 +53,23 @@ body {
 }
 
 
-
+.iplayerinfo {
+    width:400px;
+    margin:40px;
+    text-align:center;
+    clear:left;
+    }
+.infotitle {
+    text-align:left;
+    float:left;
+    margin-left:65px;
+    }
+.infothumb {
+    float:right;
+    margin-right:60px;
+    margin-top:20px;
+    }
+    
 
 
 
