@@ -71,6 +71,11 @@ p {
     }
     
 
-
+.form-group {
+    float:right;
+    clear:right;
+    margin-top:12px;
+    margin-right:65px;
+    }
 
 
