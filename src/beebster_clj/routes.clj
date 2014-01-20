@@ -12,7 +12,8 @@
   (GET "/search" [] (about-page))
   (GET "/categories" [category] (category-page category))
   (POST "/results" [searchvalue] (result-page searchvalue))
-  (GET "/info" [index] (info-page index)))
+  (GET "/info" [index] (info-page index))
+  (ANY "/download" [index mode] (download-page index mode)))
 
 
 (def app
