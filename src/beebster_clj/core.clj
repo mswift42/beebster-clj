@@ -1,4 +1,5 @@
 (ns beebster-clj.core
+  (:import [java.lang.ProcessBuilder])
   (:require [compojure.route :as route]
             [compojure.handler :as handler]
             ;; [beebster-clj.views :as views]
@@ -19,7 +20,6 @@
 
 (def delete-string
   "These programmes should be deleted:")
-
 
 
 (defn get-info
@@ -63,7 +63,7 @@
 (defn iplayer-download-command
   "concatenate index and mode to download command"
    [index mode]
-  (apply str  "get_iplayer " mode "1" " -g  --nocopyright --output=\"$HOME/Videos\"" " " index)) 
+  (list "get-iplayer" (apply str "modes=" mode "1") "output=~/Videos" "-g" index)) 
  
 (defn get-url
   "return /info url string concatenated with index"
