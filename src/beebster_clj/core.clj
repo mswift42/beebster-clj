@@ -53,6 +53,18 @@
   [s]
   (remove #(= "" %) (map #(re-find #"^[0-9]*" %) s)))
 
+(defn get-download-modes
+  "build list of possible download-modes for a given index."
+  [lst]
+  (let [modes (first (filter #(re-find #"modes.*" %) lst))]
+    (remove nil? (list (re-find #"flashhigh" modes)
+                       (re-find #"flashvhigh" modes)
+                       (re-find #"flashhd" modes)
+                       (re-find #"flashlow" modes)))))
+
+
+
+
 (defn old-recordings? 
   "Does get-iplayer complain about recorded programmes > 30 days?"
   [lst]
