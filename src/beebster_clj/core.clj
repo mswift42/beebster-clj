@@ -63,8 +63,12 @@
 (defn iplayer-download-command
   "concatenate index and mode to download command"
    [index mode]
-  (list "get-iplayer" (apply str "modes=" mode "1") "output=~/Videos" "-g" index)) 
- 
+   (list "get-iplayer" (apply str "modes=" mode "1")
+         (apply str "output=" (System/getenv "HOME") "/Videos/") "-g" index)) 
+
+
+
+
 (defn get-url
   "return /info url string concatenated with index"
   [index]
