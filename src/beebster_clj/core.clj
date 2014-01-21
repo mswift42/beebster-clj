@@ -71,8 +71,9 @@
 (defn iplayer-download-command
   "concatenate index and mode to download command"
    [index mode]
-   (list "gnome-terminal" "-e" (apply str "get-iplayer" " --modes=" mode "1"
-                                       " output=/home/martin/Videos" " -g " index))) 
+   (list "gnome-terminal"
+         (apply str "--working-directory=" (System/getenv "HOME") "/Videos") "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index))) 
+
 
 
 (defn get-url
