@@ -10,7 +10,6 @@
                  [net.cgrand/moustache "1.1.0"]]
   :plugins [[lein-ring "0.8.8"]]
   :ring {:handler beebster-clj.routes/app}
-  :dev-dependencies [[lein-ring "0.4.5"]]
-  )
+  :dev-dependencies [[lein-ring "0.4.5"]])
 
 
