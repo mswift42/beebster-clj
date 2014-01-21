@@ -55,14 +55,15 @@ p {
 
 .iplayerinfo {
     width:400px;
-    margin:40px;
+    margin-left:95px;
     text-align:center;
     clear:left;
     }
 .infotitle {
     text-align:left;
+    font-size:1.2em;
     float:left;
-    margin-left:65px;
+    margin-left:115px;
     }
 .infothumb {
     float:right;
