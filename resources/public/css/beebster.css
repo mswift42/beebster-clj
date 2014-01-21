@@ -10,13 +10,6 @@ body {
   }
 }
 
-.sform {
-    
-    margin:auto;
-    margin-left:20px;
-    margin-top:40px;
-    }
-
 
 p {
     color:#c2c2c2;
@@ -52,7 +45,6 @@ p {
     text-align:center;
 }
 
-
 .iplayerinfo {
     width:400px;
     margin-left:95px;
@@ -79,4 +71,17 @@ p {
     margin-right:65px;
     }
 
+.infoform + .form-group {
+    float:right;
+    clear:right;
+    margin-top:12px;
+    margin-right:65px;
+    }
 
+.sform {
+    float:left;
+    text-align:left;
+    margin:auto;
+    margin-left:110px;
+    margin-top:100px;
+    }
