@@ -17,7 +17,7 @@
         (for [[url description] links]
           [:li.active [:a {:href url} description]])
         (for [link categories]
-          [:li.activen
+          [:li.active
            [:a {:href (apply str "/categories?category=" link)} link]])]]]]]))
 
 (defn base-template
@@ -45,8 +45,8 @@
   "html for index page"
   []
   (html
-   (base-template "Index")
-   (header '(("/about" "About")))
+   (base-template "Search")
+   (header '(("/about" "about")))
    [:div.sform
     [:form {:method "post" :role "form" :action "/results"} 
      [:div.form-group
@@ -58,7 +58,7 @@
   []
   (html
    (base-template "About beebster")
-   (header '(("/" "Index")))
+   (header '(("/" "search")))
    [:h2.header "Beebster"]
    [:br]
    [:p "Beebster, a Web Gui for "]
@@ -105,7 +105,7 @@
   [category]
   (html
    (base-template "Categories")
-   (header '(("/" "Index") ("/about" "About")))
+   (header '(("/" "search") ("/about" "about")))
    [:h2.header (str category)]
    (display-results (search-categories category))))
 
@@ -113,7 +113,7 @@
   [searchterm]
   (html
    (base-template "Search Results")
-   (header '(("/" "Index") ("/about" "about")))
+   (header '(("/" "search") ("/about" "about")))
    [:h2.header "Search Results"]
    (display-results (iplayer-search searchterm))))
 
@@ -146,4 +146,4 @@
   [index mode]
   (let [prog (future (apply sh  (iplayer-download-command index mode)))]
     (html
-     (:p (apply str "Downloading " index mode)))))
+     [:p (apply str "Downloading " index mode)])))
