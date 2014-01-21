@@ -1,10 +1,7 @@
 (ns beebster-clj.core
   (:import [java.lang.ProcessBuilder])
   (:require [compojure.route :as route]
-            [compojure.handler :as handler]
-            
-            ;; [beebster-clj.views :as views]
-            )
+            [compojure.handler :as handler])
   (:use [ring.adapter.jetty :only [run-jetty]]
         [clojure.java.shell :only [sh]]
         [clojure.string :as str :only [split-lines ]]
@@ -12,7 +9,7 @@
 
 
 (def iplayer-command
-  '("get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <pid> <thumbnail> <name> <episode>"))
+  ["get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <pid> <thumbnail> <name> <episode>"])
 
 (def iplayer-info
   ["get-iplayer" "-i"])
@@ -84,8 +81,7 @@
 (defn iplayer-search-resultstring
   "run external command with given args list."
   [search-title]
-  (:out (apply sh (flatten
-                   (conj (list search-title) iplayer-command)))))
+  (:out (apply sh (conj iplayer-command search-title))))
 
 (defn iplayer-search
   "If old-recording? display a list of all programmes,
