@@ -15,7 +15,7 @@
   '("get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <pid> <thumbnail> <name> <episode>"))
 
 (def iplayer-info
-  '("get_iplayer" "-i"))
+  ["get-iplayer" "-i"])
 
 (def delete-string
   "These programmes should be deleted:")
@@ -23,7 +23,7 @@
 (defn get-info
   "get-iplayer info for entered index"
   [index]
-  (split-lines (:out (apply sh (flatten (conj (list index) iplayer-info))))))
+  (split-lines (:out (apply sh (conj iplayer-info index)))))
 
 (defn get-download-modes
   "build list of possible download-modes for a given index."
@@ -72,8 +72,8 @@
   "concatenate index and mode to download command"
    [index mode]
    (list "gnome-terminal"
-         (apply str "--working-directory=" (System/getenv "HOME") "/Videos") "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index))) 
-
+         (apply str "--working-directory=" (System/getenv "HOME") "/Videos")
+         "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index))) 
 
 
 (defn get-url
