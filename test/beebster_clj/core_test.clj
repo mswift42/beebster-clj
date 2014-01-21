@@ -78,3 +78,10 @@ INFO: 1 Matching Programmes
            (last (get-thumb-from-search test-list-1))))))
 
 
+(deftest test-title-and-episode
+  (testing "return title and episode from searchresult"
+    (is (= "The Bridge: Series 2 Episode 1"
+           (first (get-title-and-episode test-list-1))))
+    (is (= "The Bridge: Series 2 Episode 2"
+           (second (get-title-and-episode test-list-1))))))
+
