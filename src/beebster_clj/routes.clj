@@ -9,7 +9,7 @@
 (defroutes app-routes
   (route/resources "/")
   (GET "/" [] (index-page))
-  (GET "/search" [] (about-page))
+  (GET "/about" [] (about-page))
   (GET "/categories" [category] (category-page category))
   (POST "/results" [searchvalue] (result-page searchvalue))
   (GET "/info" [index] (info-page index))
