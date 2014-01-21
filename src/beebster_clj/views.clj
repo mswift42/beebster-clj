@@ -47,10 +47,12 @@
   (html
    (base-template "Search")
    (header '(("/about" "about")))
+   [:h2.header "Search"]
    [:div.sform
     [:form {:method "post" :role "form" :action "/results"} 
      [:div.form-group
-      [:input.form-control {:type "text" :name "searchvalue"}]]
+      [:p "Enter Search term:"]
+      [:input.form-control {:type "text" :name "searchvalue" }]]
      [:div.form-group
       [:input {:type "submit" :value "Search" :class "btn btn-default"}]]]]))
 
@@ -130,15 +132,16 @@
       [:p (first title)]]
      [:div.infothumb
       [:img {:src (first thumb)}]]
-     [:form.form-inline
-      {:role "form" :method "post" :action (apply str "/download?index=" index)}
-      [:div.form-group
-       [:select {:name "mode" :label.sr-only "download modes"}
-        (for [i modes]
-          [:option {:value i :selected (= i "mode") } i])]]
-      [:div.form-group
-       [:input {:type "submit" :value "Download" :class "btn btn-default"
-                :label.sr-only "download-modes"}]]]
+     [:div.infoform
+      [:form.form-inline
+       {:role "form" :method "post" :action (apply str "/download?index=" index)}
+       [:div.form-group
+        [:select {:name "mode" :label.sr-only "download modes"}
+         (for [i modes]
+           [:option {:value i :selected (= i "mode") } i])]]
+       [:div.form-group
+        [:input {:type "submit" :value "Download" :class "btn btn-default"
+                 :label.sr-only "download-modes"}]]]]
      [:div.iplayerinfo
       [:p (first desc)]])))
 
