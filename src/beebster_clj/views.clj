@@ -100,8 +100,8 @@
             [:a {:href (get-url ind) :alt desc}
              [:img.img {:src img}]]]
            [:div.t1
-            (str desc)]]])]
-      [:div.clear "&nbsp;"]))))
+            [:div.imgtitle
+             (str desc)]]]])]))))
 
 (defn category-page
   [category]
@@ -118,7 +118,6 @@
    (header '(("/" "search") ("/about" "about")))
    [:h2.header "Search Results"]
    (display-results (iplayer-search searchterm))))
-
 
 
 (defn info-page
