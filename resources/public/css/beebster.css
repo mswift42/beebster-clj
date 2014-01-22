@@ -3,12 +3,14 @@ body {
     background-color:#2c2c2c;
     }
 
-.navbar {
-  .navbar-inner {
-    background-color: #2c2c2c;
-    background-image: none;
-  }
-}
+
+
+.navbar .nav > li {
+    float:none;
+    display:inline-block;
+    text-align:center;
+    vertical-align:top;
+    }
 
 
 p {
@@ -21,9 +23,7 @@ p {
 }
 
 .form-control {
-    color:#000;
-    
-    
+    color:#000;    
     }
 
 
@@ -79,9 +79,9 @@ p {
     }
 
 .sform {
-    float:left;
-    text-align:left;
+    
+    text-align:center;
     margin:auto;
-    margin-left:110px;
+    /* margin-left:110px; */
     margin-top:100px;
     }
