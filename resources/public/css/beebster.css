@@ -1,45 +1,40 @@
 body {
     padding-top:65px;
     background-color:#2c2c2c;
-    }
-
-
+}
 
 .navbar .nav > li {
     float:none;
     display:inline-block;
     text-align:center;
     vertical-align:top;
-    }
-
+}
 
 p {
     color:#c2c2c2;
-    }
+}
 
-.navbar
-{
+.navbar {
     background-color: #5e00ff;
 }
 
 .form-control {
     color:#000;    
-    }
-
+}
 
 .t1 {
     margin:auto;
     width:48em;
     color:c2c2c2;
     text-align:center;
-    }
+}
 
 .tablecell {
     float:left;
     width:500px;
     text-align:center;
     margin: 20px;
-    }
+}
 .header {
     color:#5d90cd;
     text-align:center;
@@ -50,38 +45,59 @@ p {
     margin-left:95px;
     text-align:center;
     clear:left;
-    }
+}
 .infotitle {
     text-align:left;
     font-size:1.2em;
     float:left;
     margin-left:115px;
-    }
+}
 .infothumb {
     float:right;
     margin-right:60px;
     margin-top:20px;
-    }
-    
+}
 
 .form-group {
     float:right;
     clear:right;
     margin-top:12px;
     margin-right:65px;
-    }
+}
 
 .infoform + .form-group {
     float:right;
     clear:right;
     margin-top:12px;
     margin-right:65px;
-    }
+}
 
 .sform {
-    
     text-align:center;
     margin:auto;
     /* margin-left:110px; */
     margin-top:100px;
-    }
+    
+
+}
+.searchbutton {
+    box-shadow: 1px 3px 5px #555;
+    -moz-box-shadow: 1px 3px 5px #555;
+    -webkit-box-shadow: 1px 3px 5px #555;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 1px 3px 5px #555;
+    -moz-box-shadow: 1px 3px 5px #555;
+    -webkit-box-shadow: 1px 3px 5px #555;
+    padding:2px;
+    background: -webkit-gradient(linear, 2 2, 2 100%, from(#7DA6D7), to(#41648f));
+    background: -moz-linear-gradient(#7DA6D7, #41648f);
+    background: -o-linear-gradient(#7DA6D7, #41648f);
+    background: linear-gradient(top center, #7DA6D7, #41648f);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#7DA6D7), to(#41648f));
+    background: -moz-linear-gradient(#7DA6D7, #41648f);
+    background: -o-linear-gradient(#7DA6D7, #41648f);
+    background: linear-gradient(top center, #7DA6D7, #41648f);
+
+}
