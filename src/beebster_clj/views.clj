@@ -9,16 +9,16 @@
   "universal bootstrap header for all beebster sites."
   [links]
   (html
-   [:div.navbar.navbar-inverse.navbar-fixed-top
+   [:nav.navbar.navbar-inverse.navbar-fixed-top {:role "navigation"}
     [:div.navbar-inner
      [:div.container
-      [:div.nav-collapse.collapse
-       [:ul.nav
+      [:ul.nav.navbar-left
+       (for [link categories]
+         [:li.active.navbar-left
+          [:a {:href (apply str "/categories?category=" link)} link]])
+       [:ul.nav.navbar-right
         (for [[url description] links]
-          [:li.active [:a {:href url} description]])
-        (for [link categories]
-          [:li.active
-           [:a {:href (apply str "/categories?category=" link)} link]])]]]]]))
+          [:li.active.navbar-right [:a {:href url} description]])]]]]]))
 
 (defn base-template
   "base html template for all beebster sites."
@@ -50,10 +50,10 @@
    [:h2.header "Search"]
    [:div.sform
     [:form {:method "post" :role "form" :action "/results"} 
-     [:div.form-group
+     [:div.tfield
       [:p "Enter Search term:"]
       [:input.form-control {:type "text" :name "searchvalue" }]]
-     [:div.form-group
+     [:div.sbut
       [:input {:type "submit" :value "Search" :class "btn btn-default"}]]]]))
 
 (defn about-page
