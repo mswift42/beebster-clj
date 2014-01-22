@@ -66,8 +66,6 @@ web:            http://www.bbc.co.uk/programmes/p01fqbwj.html
 INFO: 1 Matching Programmes
 ")
 
-
-
 (deftest test-thumbs-from-string
   (testing "get thumbnail from string"
     (is (= "http://www.bbc.co.uk/iplayer/images/episode/b03bncr5_150_84.jpg"
@@ -84,4 +82,29 @@ INFO: 1 Matching Programmes
            (first (get-title-and-episode test-list-1))))
     (is (= "The Bridge: Series 2 Episode 2"
            (second (get-title-and-episode test-list-1))))))
+
+(deftest test-get-index-from-search
+  (testing "return index from searchresult"
+    (is (= "915"
+           (first (get-index-from-search test-list-1))))
+    (is (= "920"
+           (last (get-index-from-search test-list-1))))))
+
+(deftest test-get-download-modes
+  (testing "get-download-modes with test-info-1"
+    (is (= '("flashhigh" "flashvhigh" "flashlow")
+           (get-download-modes (list test-info-1))))))
+
+(deftest test-get-url
+  (testing "get-url "
+    (is (= "/info?index=333"
+           (get-url "333")))
+    (is (= "/info?index=1"
+           (get-url "1")))))
+
+
+
+
+
+
 
