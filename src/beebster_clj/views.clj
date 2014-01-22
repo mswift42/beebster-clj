@@ -54,7 +54,7 @@
       [:p "Enter Search term:"]
       [:input.form-control {:type "text" :name "searchvalue" }]]
      [:div.sbut
-      [:input {:type "submit" :value "Search" :class "btn btn-default"}]]]]))
+      [:input {:type "submit" :value "Search" :class "searchbutton"}]]]]))
 
 (defn about-page
   []
@@ -102,6 +102,8 @@
            [:div.t1
             [:div.imgtitle
              (str desc)]]]])]))))
+
+
 
 (defn category-page
   [category]
