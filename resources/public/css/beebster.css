@@ -88,25 +88,18 @@ p {
 }
 .searchbutton {
     border:solid #2c2c2c 1px;
-    box-shadow: 1px 3px 5px #555;
-    -moz-box-shadow: 1px 3px 5px #555;
-    -webkit-box-shadow: 1px 3px 5px #555;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    box-shadow: 1px 3px 5px #555;
-    -moz-box-shadow: 1px 3px 5px #555;
-    -webkit-box-shadow: 1px 3px 5px #555;
+    box-shadow: 1px 3px 5px #222;
+    -moz-box-shadow: 1px 3px 5px #222;
+    -webkit-box-shadow: 1px 3px 5px #222;
     padding:4px;
-    background: -webkit-gradient(linear, 2 2, 2 100%, from(#7DA6D7), to(#41648f));
-    background: -moz-linear-gradient(#7DA6D7, #41648f);
-    background: -o-linear-gradient(#7DA6D7, #41648f);
-    background: linear-gradient(top center, #7DA6D7, #41648f);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#7DA6D7), to(#41648f));
     background: -moz-linear-gradient(#7DA6D7, #41648f);
     background: -o-linear-gradient(#7DA6D7, #41648f);
     background: linear-gradient(top center, #7DA6D7, #41648f);
-
+    color:#111;
 }
 .download {
     margin-top:100px;
