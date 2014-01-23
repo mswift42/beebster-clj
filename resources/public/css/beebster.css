@@ -31,10 +31,14 @@ p {
 
 .tablecell {
     float:left;
-    width:500px;
+    width:600px;
     text-align:center;
     margin: 20px;
-}
+    }
+.imgtitle {
+    padding:5px;
+    }
+
 .header {
     color:#5d90cd;
     text-align:center;
@@ -50,6 +54,7 @@ p {
     text-align:left;
     font-size:1.2em;
     float:left;
+    padding:4px;
     margin-left:115px;
 }
 .infothumb {
