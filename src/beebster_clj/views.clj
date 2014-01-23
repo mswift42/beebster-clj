@@ -63,9 +63,10 @@
    (header '(("/" "search")))
    [:h2.header "Beebster"]
    [:br]
-   [:p "Beebster, a Web Gui for "]
-   [:a {:href "http://www.infradead.org/get_iplayer/html/get_iplayer.html"}
-    "get-iplayer"]))
+   [:div.download
+    [:p "Beebster, a Web Gui for "]
+    [:a {:href "http://www.infradead.org/get_iplayer/html/get_iplayer.html"}
+     "get-iplayer"]]))
 
 
 (defn combine-list
