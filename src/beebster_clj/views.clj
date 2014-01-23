@@ -150,4 +150,7 @@
   [index mode]
   (let [prog (future (apply sh  (iplayer-download-command index mode)))]
     (html
-     [:p (apply str "Downloading " index mode)])))
+     (base-template "Download")
+     (header '(("/" "search") ("/about" "about")))
+     [:div.download
+      [:p (apply str "Downloading programme with index: " index )]])))
