@@ -86,6 +86,7 @@ p {
 
 }
 .searchbutton {
+    border:solid #2c2c2c 1px;
     box-shadow: 1px 3px 5px #555;
     -moz-box-shadow: 1px 3px 5px #555;
     -webkit-box-shadow: 1px 3px 5px #555;
