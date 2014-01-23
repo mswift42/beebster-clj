@@ -130,7 +130,7 @@
      (header '(("/" "search") ("/about" "about")))
      [:h2.header "Info"]
      [:div.infotitle
-      [:p (first title)]]
+      [:p [:strong (first title)]]]
      [:div.infothumb
       [:img {:src (first thumb)}]]
      [:div.infoform
