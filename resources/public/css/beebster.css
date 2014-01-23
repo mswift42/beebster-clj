@@ -30,10 +30,11 @@ p {
 }
 
 .tablecell {
+    display:table-row;
     float:left;
-    width:600px;
+    width:550px;
     text-align:center;
-    margin: 20px;
+    margin: 30px;
     }
 .imgtitle {
     padding:5px;
@@ -96,7 +97,7 @@ p {
     box-shadow: 1px 3px 5px #555;
     -moz-box-shadow: 1px 3px 5px #555;
     -webkit-box-shadow: 1px 3px 5px #555;
-    padding:2px;
+    padding:4px;
     background: -webkit-gradient(linear, 2 2, 2 100%, from(#7DA6D7), to(#41648f));
     background: -moz-linear-gradient(#7DA6D7, #41648f);
     background: -o-linear-gradient(#7DA6D7, #41648f);
@@ -107,3 +108,8 @@ p {
     background: linear-gradient(top center, #7DA6D7, #41648f);
 
 }
+.download {
+    margin-top:100px;
+    text-align:center;
+    font-size:1.3.em;
+    }
