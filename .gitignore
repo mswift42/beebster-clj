@@ -14,3 +14,5 @@ pom.xml.asc
 /src/beebster_clj/views.clj~
 /resources/public/css/beebster.css~
 /src/beebster_clj/routes.clj~
+/resources/public/css/#beebster.css#
+/resources/public/css/.#beebster.css
