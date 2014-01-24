@@ -88,8 +88,9 @@
     [:p "No matches found."])
    (some #(re-find #"These programmes should" %) resultlist)
    (html
-    (for [i resultlist]
-      [:p (str i)]))
+    [:div.oldrec
+     (for [i resultlist]
+       [:p (str i)])])
    :else
    (let [comb (combine-list resultlist)]
      (html
