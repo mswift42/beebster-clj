@@ -113,12 +113,5 @@
 
 
 
-(defn wrap-line
-  "wrap text to given size."
-  [size text]
-  (re-pattern (str ".{0," size "}\\s"))
-  (clojure.string/replace text #" " "\n"))
-
-
 
 
