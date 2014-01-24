@@ -30,16 +30,6 @@
     (include-css "/css/beebster.css")]))
 
 
-(defmacro category-template 
-  "macro for category links."
-  [url cat header]
-  `(base-template
-    (:title ~header)
-    (for [i categories]
-      (html ([:a.ms {:href (apply str "/" i)} i])))
-    (:h3 :id "header" ,header)
-    (display-results (search-categories ~header))))
-
 
 (defn index-page
   "html for index page"
@@ -85,6 +75,7 @@
   (cond
    (empty? resultlist)
    (html
+    
     [:p "No matches found."])
    (some #(re-find #"These programmes should" %) resultlist)
    (html
@@ -120,7 +111,7 @@
    (base-template "Search Results")
    (header '(("/" "search") ("/about" "about")))
    [:h2.header "Search Results"]
-   (display-results (iplayer-search nil searchterm))))
+   (display-results (iplayer-search searchterm))))
 
 
 (defn info-page
