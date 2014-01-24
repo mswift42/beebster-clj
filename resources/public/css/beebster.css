@@ -23,21 +23,23 @@ p {
 }
 
 .t1 {
-    margin:auto;
+    padding:12px;
     width:48em;
     color:c2c2c2;
     text-align:center;
 }
 
 .tablecell {
-    display:table-row;
     float:left;
     width:550px;
     text-align:center;
-    margin: 30px;
-    }
+}
 .imgtitle {
-    padding:5px;
+    padding:12px;
+    color:c2c2c2;
+    width:190px;
+    margin-left:255px;
+    max-height:35px;
     }
 
 .header {
@@ -60,7 +62,7 @@ p {
 }
 .infothumb {
     float:right;
-    margin-right:60px;
+    margin-right:100px;
     margin-top:20px;
 }
 
@@ -68,7 +70,7 @@ p {
     float:right;
     clear:right;
     margin-top:12px;
-    margin-right:65px;
+    margin-right:100px;
 }
 
 .infoform + .form-group {
