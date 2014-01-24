@@ -9,7 +9,8 @@
 
 
 (def iplayer-command
-  ["get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <pid> <thumbnail> <name> <episode>"])
+  ["get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <thumbnail> <name> <episode>"])
+;; 
 
 (def iplayer-info
   ["get-iplayer" "-i"])
