@@ -14,6 +14,11 @@ p {
     color:#c2c2c2;
 }
 
+div.oldrec {
+    text-align:center;
+    color:#999;
+    }
+
 .navbar {
     background-color: #5e00ff;
 }
@@ -85,8 +90,6 @@ p {
     margin:auto;
     /* margin-left:110px; */
     margin-top:100px;
-    
-
 }
 .searchbutton {
     border:solid #2c2c2c 1px;
@@ -103,8 +106,14 @@ p {
     background: linear-gradient(top center, #7DA6D7, #41648f);
     color:#111;
 }
+
 .download {
     margin-top:100px;
     text-align:center;
-    font-size:1.3.em;
+    font-size:1.3em;
     }
+
+
+
+
+
