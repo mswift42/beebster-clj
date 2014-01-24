@@ -83,7 +83,7 @@
    in 2 columns."
   [resultlist]
   (cond
-   (nil? resultlist)
+   (empty? resultlist)
    (html
     [:p "No matches found."])
    (some #(re-find #"These programmes should" %) resultlist)
@@ -100,9 +100,8 @@
            [:div.t1
             [:a {:href (get-url ind) :alt desc}
              [:img.img {:src img}]]]
-           [:div.t1
-            [:div.imgtitle
-             (str desc)]]]])]))))
+           [:div.imgtitle
+            (str desc)]]])]))))
 
 
 
@@ -120,7 +119,7 @@
    (base-template "Search Results")
    (header '(("/" "search") ("/about" "about")))
    [:h2.header "Search Results"]
-   (display-results (iplayer-search searchterm))))
+   (display-results (iplayer-search nil searchterm))))
 
 
 (defn info-page

@@ -80,30 +80,32 @@
 
 (defn iplayer-search-resultstring
   "run external command with given args list."
-  [search-title]
-  (:out (apply sh (conj iplayer-command search-title))))
+  [search-title & [cat ]]
+  (:out (apply sh (conj iplayer-command cat search-title ))))
 
 (defn iplayer-search
   "If old-recording? display a list of all programmes,
    that have to be deleted, otherwise, return a list of 
    all matching programmes for search input."
-  [search-title]
-  (let [result (iplayer-search-resultstring search-title)]
+  [search-title & [cat]]
+  (let [result (iplayer-search-resultstring cat search-title )]
     (if (old-recordings? (split-lines result))
-      (split-lines (subs result (.indexOf result delete-string)))
+      (reverse (drop 2 (reverse
+                        (split-lines
+                         (subs result (.indexOf result delete-string))))))
       (split-lines result))))
 
 (defn search-categories
   "search iplayer for a given category"
   [cat]
-  (drop 1 (butlast
-           (split-lines (:out (apply sh (flatten
-                                         (conj (list "--category" cat)
-                                               iplayer-command))))))))
+  (iplayer-search "--category" cat))
 
 
-
-
+(defn wrap-line
+  "wrap text to given size."
+  [size text]
+  (re-pattern (str ".{0," size "}\\s"))
+  (clojure.string/replace text #" " "\n"))
 
 
 
