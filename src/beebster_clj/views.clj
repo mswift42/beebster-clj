@@ -42,7 +42,7 @@
     [:form {:method "post" :role "form" :action "/results"} 
      [:div.tfield
       [:p "Enter Search term:"]
-      [:input.form-control {:type "text" :name "searchvalue" }]]
+      [:input.form-control {:type "text" :name "searchvalue" :autofocus "autofocus"}]]
      [:div.sbut
       [:input {:type "submit" :value "Search" :class "searchbutton"}]]]]))
 
