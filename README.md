@@ -9,6 +9,6 @@ Screenshots
 
 # Displaying a category
 ![category](https://github.com/mswift42/beebster-clj/raw/master/Screenshot-cat.png)
-![info](https://github.com/mswift42/beebster/raw/master/Screenshot-info.png)
+![info](https://github.com/mswift42/beebster-clj/raw/master/Screenshot-info.png)
 
 
