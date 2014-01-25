@@ -16,6 +16,7 @@ Clone this repository
 Package beebster
 
 <code>cd beebster-clj</code>
+
 <code>lein ring uberjar</code>
 
 This will create a runnable jar which can be started with:
