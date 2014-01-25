@@ -1,20 +1,26 @@
 (ns beebster-clj.core
-  (:import [java.lang.ProcessBuilder])
   (:require [compojure.route :as route]
-            [compojure.handler :as handler])
+            [compojure.handler :as handler]
+            [beebster-clj.config :as config])
   (:use [ring.adapter.jetty :only [run-jetty]]
         [clojure.java.shell :only [sh]]
         [clojure.string :as str :only [split-lines ]]
-        hiccup.core hiccup.util hiccup.page compojure.core ))
+        hiccup.core hiccup.util hiccup.page compojure.core))
 
-
+;; iplayer-command to use for searches. The use of --listformat reduces 
+;; get_iplayer's output just to the desired information, in this case
+;; index, the url of the programmes thumbnail, and the programmes title,
+;; and in case of series, the episode number.
 (def iplayer-command
   ["get_iplayer" "--nocopyright" "--limitmatches" "50" "--listformat" "<index> <thumbnail> <name> <episode>"])
-;; 
+
 
 (def iplayer-info
   ["get-iplayer" "-i"])
 
+
+;; keeping downloaded programmes longer than 30 days on your harddisk is not
+;; cool. Thus, get_iplayer asks you to delete old recordings. 
 (def delete-string
   "These programmes should be deleted:")
 
@@ -67,11 +73,15 @@
 
 
 (defn iplayer-download-command
-  "concatenate index and mode to download command"
+  "Get values of terminal and download-destination from beebster-clj.config.clj.
+   By default, it uses gnome-terminal and $HOME/Videos. Then build a list 
+   of commands for 'sh' to work on."
    [index mode]
-   (list "gnome-terminal"
-         (apply str "--working-directory=" (System/getenv "HOME") "/Videos")
-         "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index))) 
+   (let [term (get config/config :terminal)
+         dir  (get config/config :download-folder)]
+     (list term
+           dir
+           "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index)))) 
 
 
 (defn get-url
