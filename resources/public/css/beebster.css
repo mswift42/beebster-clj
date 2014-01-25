@@ -16,7 +16,7 @@ p {
 
 div.oldrec {
     text-align:center;
-    color:#999;
+    color:#ffffff;
     }
 
 .navbar {
@@ -29,20 +29,21 @@ div.oldrec {
 
 .t1 {
     padding:12px;
-    width:48em;
+    width:54em;
     color:c2c2c2;
     text-align:center;
 }
 
-.tablecell {
+div.tablecell {
     float:left;
-    width:550px;
+    width:40em;
     text-align:center;
+    height:16em;
 }
 .imgtitle {
     padding:12px;
     color:c2c2c2;
-    width:190px;
+    width:18em;
     margin-left:255px;
     max-height:35px;
     }
