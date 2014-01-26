@@ -10,11 +10,13 @@
                  [net.cgrand/moustache "1.1.0"]]
   :plugins [[lein-ring "0.8.8"]]
   :ring {:handler beebster-clj.routes/app}
-  ;; {:production
-  ;;  {:ring
-  ;;   {:open-browser? true}}}
-  :aot
-  :all
+  :profiles
+  {:uberjar {:aot :all},
+   :production
+   {:ring
+    {:open-browser? true, :stacktraces? false }}}
+  ;; :aot
+  ;; :all
   :dev-dependencies [[lein-ring "0.8.8"]])
 
 

@@ -29,8 +29,6 @@
     (include-css "/css/bootstrap.min.css")
     (include-css "/css/beebster.css")]))
 
-
-
 (defn index-page
   "html for index page"
   []
@@ -94,7 +92,6 @@
              [:img.img {:src img}]]]
            [:div.imgtitle
             (str desc)]]])]))))
-
 
 
 (defn category-page
