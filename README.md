@@ -45,6 +45,12 @@ java -jar target/beebster-clj-0.1.0-SNAPSHOT-standalone.jar
 firefox -new-tab localhost:3000
 ```
 
+Configuration
+-------------
+
+Adapt file `config.clj` to your needs.
+By default it uses gnome-terminal, and as Download destination $HOME/Videos.
+
 
 Screenshots
 ------------
