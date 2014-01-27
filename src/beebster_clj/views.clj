@@ -79,7 +79,7 @@
    (html
     [:div.oldrec
      (for [i resultlist]
-       [:p (str i)])])
+       [:p.oldrec (str i)])])
    :else
    (let [comb (combine-list resultlist)]
      (html
