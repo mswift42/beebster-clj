@@ -16,7 +16,7 @@
 
 
 (def iplayer-info
-  ["get-iplayer" "-i"])
+  ["get_iplayer" "-i"])
 
 
 ;; keeping downloaded programmes longer than 30 days on your harddisk is not
@@ -81,7 +81,7 @@
          dir  (get config/config :download-folder)]
      (list term
            dir
-           "-e"  (apply str "get-iplayer" " --modes=" mode "1" " -g " index)))) 
+           "-e"  (apply str "get_iplayer" " --modes=" mode "1" " -g " index)))) 
 
 
 (defn get-url
