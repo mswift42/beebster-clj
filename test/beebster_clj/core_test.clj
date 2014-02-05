@@ -102,7 +102,15 @@ INFO: 1 Matching Programmes
     (is (= "/info?index=1"
            (get-url "1")))))
 
+(deftest test-search-wiki
+  (testing "get wikipedia url for search queries."
+    (is (= "http://en.wikipedia.org/w/index.php?search=pramface"
+           (wiki-url "pramface")))))
 
+(deftest test-search-imdb
+  (testing "get imdb url for search queries."
+    (is (= "http://imdb.com/find?q=pramface"
+           (imdb-url "pramface")))))
 
 
 
