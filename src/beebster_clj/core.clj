@@ -123,5 +123,22 @@
       (split-lines result))))
 
 
+(def wiki-search-string
+  "http://en.wikipedia.org/w/index.php?search=")
+
+(defn wiki-url
+  "return wikipedia url for search queries."
+  [searchterm]
+  (apply str wiki-search-string searchterm))
+
+(def imdb-search-string
+  "http://imdb.com/find?q=")
+
+(defn imdb-url
+  "return imdb url for search queries."
+  [searchterm]
+  (apply str imdb-search-string searchterm))
+
+
 
 
