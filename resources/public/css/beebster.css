@@ -114,7 +114,13 @@ div.tablecell {
     font-size:1.3em;
     }
 
-
+div.wikilink {
+    margin-left:8em;
+    clear:both;
+    font-size:1.3em;
+    line-height:1.2em;
+    border:solid:1px;
+    }
 
 
 
