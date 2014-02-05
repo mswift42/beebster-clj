@@ -133,7 +133,9 @@
         [:input {:type "submit" :value "Download" :class "searchbutton"
                  :label.sr-only "download-modes"}]]]]
      [:div.iplayerinfo
-      [:p (first desc)]])))
+      [:p (first desc)]]
+     [:div.wikilink
+      [:a {:href (wiki-url (first title))} (first title)]])))
 
 (defn download-page
   [index mode]
