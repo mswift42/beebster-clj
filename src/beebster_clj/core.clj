@@ -4,7 +4,7 @@
             [beebster-clj.config :as config])
   (:use [ring.adapter.jetty :only [run-jetty]]
         [clojure.java.shell :only [sh]]
-        [clojure.string :as str :only [split-lines ]]
+        [clojure.string :as str :only [split-lines]]
         hiccup.core hiccup.util hiccup.page compojure.core))
 
 ;; iplayer-command to use for searches. The use of --listformat reduces 
@@ -37,6 +37,7 @@
                        (re-find #"flashvhigh" modes)
                        (re-find #"flashhd" modes)
                        (re-find #"flashlow" modes)))))
+
 
 (defn load-thumbandinfo-for-index
   "grep url for thumbnail size44, title and description
@@ -123,13 +124,20 @@
       (split-lines result))))
 
 
+(defn string-to-url-sanitizer
+  "remove ':' from string replace space with '_' or '+'"
+  [string delimiter]
+  (let [sanstring (str/replace string #":" "")]
+    (str/replace sanstring #" " delimiter)))
+
 (def wiki-search-string
   "http://en.wikipedia.org/w/index.php?search=")
 
 (defn wiki-url
   "return wikipedia url for search queries."
   [searchterm]
-  (apply str wiki-search-string searchterm))
+  (let [term (str/replace searchterm #" " "_")]
+    (apply str wiki-search-string term )))
 
 (def imdb-search-string
   "http://imdb.com/find?q=")
@@ -137,7 +145,14 @@
 (defn imdb-url
   "return imdb url for search queries."
   [searchterm]
-  (apply str imdb-search-string searchterm))
+  (let [term (str/replace searchterm #" " "+")]
+    (apply str imdb-search-string term)))
+
+
+
+
+
+
 
 
 
