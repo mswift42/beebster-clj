@@ -105,7 +105,9 @@ INFO: 1 Matching Programmes
 (deftest test-search-wiki
   (testing "get wikipedia url for search queries."
     (is (= "http://en.wikipedia.org/w/index.php?search=pramface"
-           (wiki-url "pramface")))))
+           (wiki-url "pramface")))
+    (is (= "http://en.wikipedia.org/w/index.php?search=the_restaurant_more_food"
+           (wiki-url "the restaurant: more food")))))
 
 (deftest test-search-imdb
   (testing "get imdb url for search queries."
