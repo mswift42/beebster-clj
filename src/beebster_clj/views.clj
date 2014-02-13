@@ -135,7 +135,9 @@
      [:div.iplayerinfo
       [:p (first desc)]]
      [:div.wikilink
-      [:a {:href (wiki-url (first title))} (first title)]])))
+      [:a {:href (wiki-url (first title))} "Look up on wikipedia"]
+      [:br]
+      [:a {:href (imdb-url (first title))} "Look up on IMDB"]])))
 
 (defn download-page
   [index mode]
