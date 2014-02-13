@@ -137,7 +137,7 @@
   "return wikipedia url for search queries."
   [searchterm]
   (let [term (str/replace searchterm #" " "_")]
-    (apply str wiki-search-string term )))
+    (apply str wiki-search-string (str/replace term #":" "") )))
 
 (def imdb-search-string
   "http://imdb.com/find?q=")
