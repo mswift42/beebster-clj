@@ -24,7 +24,7 @@ div.oldrec {
 }
 
 .form-control {
-    color:#000;    
+    color:#000;
 }
 
 .t1 {
@@ -120,6 +120,9 @@ div.wikilink {
     font-size:1.3em;
     line-height:1.2em;
     border:solid:1px;
+    box-shadow: 0 1px 3px #789;
+    background:  -moz-linear-gradient(#7da6d7,#41648f);
+    Background: linear-gradient(top center, #7da6d7, #41648f);
     }
 
 
