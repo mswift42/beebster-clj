@@ -19,3 +19,4 @@ pom.xml.asc
 /src/beebster_clj/config.clj~
 /target.old/classes/beebster_clj/routes/main.clj
 /target.old/stale/extract-native.dependencies
+/start.sh~
